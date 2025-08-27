@@ -1,36 +1,75 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Белпродукт - Каталог</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Белорусские продукты — каталог</title>
+  <meta name="description" content="Каталог «Белорусские продукты»: молочные, хлебобулочные, сладости. Актау." />
+  <meta name="theme-color" content="#0a84ff" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="preload" href="styles.css" as="style" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="icons/icon-192.svg" type="image/svg+xml" />
+  <meta property="og:title" content="Белорусские продукты — каталог" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="icons/icon-512.svg" />
 </head>
-<body>
-    <header>
-        <h1>Каталог "Белорусские продукты"</h1>
-        <nav>
-            <a href="#">Главная</a>
-            <a href="#">Каталог</a>
-            <a href="#">Контакты</a>
-        </nav>
-    </header>
-    <main>
-        <section class="products">
-            <article class="product">
-                <img src="images/milk.jpg" alt="Молоко">
-                <h2>Молоко</h2>
-                <p>Натуральное молоко из Беларуси.</p>
-            </article>
-            <article class="product">
-                <img src="images/bread.jpg" alt="Хлеб">
-                <h2>Хлеб</h2>
-                <p>Свежий белорусский хлеб.</p>
-            </article>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Белпродукт</p>
-    </footer>
+<body id="home-page">
+<header class="site-header">
+  <a class="brand" href="./" aria-label="На главную">Белорусские продукты</a>
+  <nav class="nav">
+    <a href="./" data-i18n="nav.home">Главная</a>
+    <a href="#catalog" data-i18n="nav.catalog">Каталог</a>
+    <a href="stores.html" data-i18n="nav.stores">Где купить</a>
+    <button id="lang-ru" class="lang" aria-pressed="true">RU</button>
+    <button id="lang-kz" class="lang" aria-pressed="false">KZ</button>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h1 data-i18n="hero.title">Каталог «Белорусские продукты»</h1>
+    <p data-i18n="hero.text">Натуральные продукты из Беларуси. Доставляем вкус и качество.</p>
+    <a class="btn" href="#catalog" data-i18n="hero.cta">Перейти в каталог</a>
+  </section>
+
+  <section id="catalog" class="catalog">
+    <div class="catalog-controls">
+      <label>
+        <span data-i18n="controls.search">Поиск</span>
+        <input id="search" type="search" placeholder="молоко, хлеб..." autocomplete="off" />
+      </label>
+      <label>
+        <span data-i18n="controls.category">Категория</span>
+        <select id="category">
+          <option value="all" selected data-i18n="controls.all">Все товары</option>
+        </select>
+      </label>
+      <label>
+        <span data-i18n="controls.sort">Сортировка</span>
+        <select id="sort">
+          <option value="name" data-i18n="controls.sortName">По названию</option>
+          <option value="priceAsc" data-i18n="controls.sortCheap">Сначала дешевле</option>
+          <option value="priceDesc" data-i18n="controls.sortExpensive">Сначала дороже</option>
+        </select>
+      </label>
+    </div>
+
+    <ul id="grid" class="grid" aria-live="polite" aria-busy="true">
+      <!-- карточки рендерятся из products.json -->
+    </ul>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <small>© <span id="year"></span> Белорусские продукты · Актау</small>
+</footer>
+
+<script defer src="app.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./service-worker.js', {scope: './'}).catch(console.warn);
+  }
+</script>
 </body>
 </html>
