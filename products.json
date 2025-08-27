@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Молоко 2.5%",
+    "category": "Молочные",
+    "price": 650,
+    "image": "images/milk.jpg",
+    "description": "Натуральное пастеризованное молоко 2.5%."
+  },
+  {
+    "id": 2,
+    "name": "Кефир 1%",
+    "category": "Молочные",
+    "price": 590,
+    "image": "images/milk.jpg",
+    "description": "Классический кефир 1%."
+  },
+  {
+    "id": 3,
+    "name": "Хлеб пшеничный",
+    "category": "Хлебобулочные",
+    "price": 250,
+    "image": "images/bread.jpg",
+    "description": "Свежий пшеничный хлеб."
+  },
+  {
+    "id": 4,
+    "name": "Батон нарезной",
+    "category": "Хлебобулочные",
+    "price": 280,
+    "image": "images/bread.jpg",
+    "description": "Нарезной батон для бутербродов."
+  },
+  {
+    "id": 5,
+    "name": "Ирис сливочный",
+    "category": "Сладости",
+    "price": 350,
+    "image": "images/bread.jpg",
+    "description": "Мягкий ирис со сливочным вкусом."
+  },
+  {
+    "id": 6,
+    "name": "Шоколад молочный",
+    "category": "Сладости",
+    "price": 890,
+    "image": "images/bread.jpg",
+    "description": "Шоколад с натуральным молоком."
+  }
+]
